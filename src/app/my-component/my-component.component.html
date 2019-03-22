@@ -1,0 +1,5 @@
+<input [(ngModel)]="selectedPokemon" type="text"><br>
+<input readonly [(ngModel)]="selectedPokemon" type="text"><br>
+<select [(ngModel)]="selectedPokemon">
+	<option *ngFor="let p of pokemons" [ngValue]="p.id">{{p.nom}}</option>
+</select>
