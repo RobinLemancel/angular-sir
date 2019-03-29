@@ -1,0 +1,47 @@
+<div *ngIf="id>0">
+ <img src="{{img}}" alt="{{nom}}" style="height:150px;width:150px"/><br>
+ <table style="margin:auto;border:1px solid black">
+	<tr style="border:1px solid black">
+		<th>
+			ID
+		</th>
+		<th>
+			{{id}}
+		</th>
+	</tr>
+	<tr>
+		<th>
+			Nom 
+		</th>
+		<th>
+			{{nom}}
+		</th>
+	</tr>
+	<tr>
+		<th>
+			Poids 
+		</th>
+		<th>
+			{{poids}}
+		</th>
+	</tr>
+	<tr>
+		<th>
+			Taille 
+		</th>
+		<th>
+			{{taille}}
+		</th>
+	</tr>
+	<tr>
+		<th>
+			Capacités 
+		</th>
+		<th>
+			 <ul style="margin:0;padding:0; list-style:none">
+				<li *ngFor="let c of capacites" style="font-size:13px">{{c}}</li>
+			 </ul>
+		</th>
+	</tr>
+</table>
+</div>

@@ -1,17 +1,26 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Pokemon } from './pokemon';
 
 @Pipe({
   name: 'filterPokemonPipe'
 })
 export class FilterPokemonPipePipe implements PipeTransform {
 
-   transform(value: any[], property?: string, searchString?: string): any {
-    if (typeof value !== 'undefined') {
-      return value.filter((e) => {
-        return e[property].toLowerCase().indexOf(searchString.toLowerCase()) !== -1;
-      });
-    } else {
-      return [];
-    }
-  }
+	transform(value : Pokemon[], filtre: string): Pokemon[] {
+		if(filtre === "") {
+			return value;
+		}
+		else {
+			var pokemonsFiltres : Pokemon[] = [];
+			if (typeof value !== 'undefined') {
+				value.forEach(function(entry : Pokemon) {
+						console.log('filtre');
+					if (entry.nom.indexOf(filtre) !== -1) {
+						pokemonsFiltres.push(entry);
+					}
+				});
+			}
+			return pokemonsFiltres;
+		}
+	}
 }

@@ -1,5 +1,21 @@
-<input [(ngModel)]="selectedPokemon" type="text"><br>
-<input readonly [(ngModel)]="selectedPokemon" type="text"><br>
-<select [(ngModel)]="selectedPokemon">
-	<option *ngFor="let p of pokemons" [ngValue]="p.id">{{p.nom}}</option>
-</select>
+<table>
+<tr>
+<th>
+<label>ID pokémon : </label>
+</th>
+<th>
+<input [(ngModel)]="selectedPokemon" (change)="changeId()" type="text" style="width:100%"><br>
+</th>
+</tr>
+<tr>
+<th>
+<!--<input readonly [(ngModel)]="selectedPokemon" type="text"><br>-->
+<label>Filtrer liste : </label></th><th><input [(ngModel)]="filtre" type="text">
+<select [(ngModel)]="selectedPokemon" (change)="changeId()">
+	<option *ngFor="let p of pokemons | filterPokemonPipe:filtre" [ngValue]="p.id">{{p.nom}}</option>
+</select></th>
+</tr>
+</table>
+<div style="text-align:center">
+<button (click)="changeId()">GO</button>
+</div>
